@@ -15,8 +15,10 @@ export default {
 </script>
 
 <style lang="scss">
+    @import "../assets/style/vars.scss";
+
     .bg{
-        background-color:#2e3a46;
+        background-color: $light-color;
         height: 100px;
 
         img{
