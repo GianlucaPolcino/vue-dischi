@@ -1,26 +1,36 @@
 <template>
-  <div class="card d-flex align-items-center p-4">
-      <img class="pb-3" src="https://m.media-amazon.com/images/I/91s+CxEDriL._AC_SY450_.jpg" alt="">
-      <h4 class="text-white fw-bold">TITOLO CANZONE</h4>
-      <p>Artista</p>
-      <span>Anno</span>
+  <div class="card p-4 m-4 text-center">
+      <img class="pb-3" :src="song.poster" alt="">
+      <h4 class="text-white fw-bold">{{song.title}}</h4>
+      <p>{{song.author}}</p>
+      <span>{{song.year}}</span>
   </div>
 </template>
 
 <script>
 export default {
     name: "Cards",
+    props:{
+        song: Object
+    }
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
     @import "../assets/style/vars.scss";
 
     .card{
+        display: inline-block;
+        width: 20%;
+        min-height: 400px;
         background-color: $light-color;
 
         img{
             width: 100%;
+        }
+
+        p, span{
+            color: gray;
         }
         
         
