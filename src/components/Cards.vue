@@ -1,5 +1,5 @@
 <template>
-  <div class="card p-4 m-4 text-center">
+  <div class="col-2 card p-4 m-2 text-center">
       <img class="pb-3" :src="song.poster" alt="">
       <h4 class="text-white fw-bold">{{song.title}}</h4>
       <p>{{song.author}}</p>
@@ -20,8 +20,6 @@ export default {
     @import "../assets/style/vars.scss";
 
     .card{
-        display: inline-block;
-        width: 20%;
         min-height: 400px;
         background-color: $light-color;
 
