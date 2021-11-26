@@ -2,7 +2,7 @@
   <div class="container-fluid bg-main">
       <div class="container py-5">
           <div class="row">
-              <div class="d-inline-flex align-items-center flex-wrap py-5">
+              <div class="d-inline-flex align-items-center justify-content-center flex-wrap py-5">
                   <Cards 
                   v-for="(song, index) in songs" :key="index" :song="song"
                   />
