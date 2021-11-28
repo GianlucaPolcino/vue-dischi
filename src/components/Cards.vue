@@ -1,5 +1,5 @@
 <template>
-  <div class="col-2 card p-4 m-2 text-center">
+  <div class="col-sm-4 col-md-3 col-xl-2 card p-4 m-2 text-center">
       <img class="pb-3" :src="song.poster" alt="">
       <h4 class="text-white fw-bold">{{song.title}}</h4>
       <p>{{song.author}}</p>

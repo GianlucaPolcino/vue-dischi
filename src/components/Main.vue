@@ -1,10 +1,16 @@
 <template>
   <div class="container-fluid bg-main">
       <div class="container py-5">
-          <div class="row justify-content-center">
+          <div class="row justify-content-center" v-if="loaded == false">
               <Cards 
               v-for="(song, index) in songs" :key="index" :song="song"
               />
+          </div>
+
+          <div class="row" v-else>
+              <div class="col text-center">
+                  <h1 class="text-white">Caricamento...</h1>
+              </div>
           </div>
       </div>
   </div>
@@ -31,9 +37,11 @@ export default {
 
     methods:{
         getApi(){
+            this.loaded = true;
             axios.get(this.api)
             .then(r =>{
                 this.songs = r.data.response;
+                this.loaded = false;
             })
             .catch(e =>{
                 console.log(e);
