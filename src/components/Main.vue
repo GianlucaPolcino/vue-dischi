@@ -12,6 +12,9 @@
                   <h1 class="text-white">Caricamento...</h1>
               </div>
           </div>
+          <div>
+              <p>{{this.songGenre}}</p>
+          </div>
       </div>
   </div>
 </template>
@@ -23,6 +26,9 @@ import Cards from "./Cards.vue"
 
 export default {
     name: "Main",
+    props:{
+        songGenre: String
+    },
     components:{
         Cards,
     },
@@ -30,6 +36,7 @@ export default {
     data(){
         return{
             songs: [],
+            arrayGenre: [],
             loaded: false,
             api: "https://flynn.boolean.careers/exercises/api/array/music",
         }
@@ -46,6 +53,18 @@ export default {
             .catch(e =>{
                 console.log(e);
             })
+        },
+
+        filteredSongs(){
+            if(this.songGenre === 'all'){
+                return this.songs;
+            }
+            this.arrayGenre = this.songs.filter(item =>{
+            return item.genre.toUpperCase().includes(this.songGenre.toUpperCase());
+            
+            })
+
+            return this.arrayGenre
         }
     },
 

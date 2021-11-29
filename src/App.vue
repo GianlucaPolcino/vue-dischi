@@ -1,7 +1,7 @@
 <template>
   <div>
-    <Header />
-    <Main />
+    <Header @sendSearch="typeSearch" />
+    <Main :songGenre="songGenre"/>
   </div>
   
 </template>
@@ -15,6 +15,18 @@ export default {
   components: {
     Header,
     Main,
+  },
+
+  data(){
+    return{
+      songGenre: '',
+    }
+  },
+
+  methods:{
+    typeSearch(type){
+      return this.songGenre = type;
+    }
   }
 }
 </script>
