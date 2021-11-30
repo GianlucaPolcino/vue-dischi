@@ -30,14 +30,9 @@ export default {
         performSearch(type){
             this.typeToSearch = type;
             // console.log(this.typeToSearch);
-        }
-    },
-
-    computed:{
-        passTrough(){
             return this.$emit('sendSearch', this.typeToSearch)
         }
-    }
+    },
 }
 </script>
 

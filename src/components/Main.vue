@@ -3,7 +3,7 @@
       <div class="container py-5">
           <div class="row justify-content-center" v-if="loaded == false">
               <Cards 
-              v-for="(song, index) in songs" :key="index" :song="song"
+              v-for="(song, index) in filteredSongs" :key="index" :song="song"
               />
           </div>
 
@@ -11,9 +11,6 @@
               <div class="col text-center">
                   <h1 class="text-white">Caricamento...</h1>
               </div>
-          </div>
-          <div>
-              <p>{{this.songGenre}}</p>
           </div>
       </div>
   </div>
@@ -36,7 +33,6 @@ export default {
     data(){
         return{
             songs: [],
-            arrayGenre: [],
             loaded: false,
             api: "https://flynn.boolean.careers/exercises/api/array/music",
         }
@@ -55,21 +51,33 @@ export default {
             })
         },
 
-        filteredSongs(){
-            if(this.songGenre === 'all'){
-                return this.songs;
-            }
-            this.arrayGenre = this.songs.filter(item =>{
-            return item.genre.toUpperCase().includes(this.songGenre.toUpperCase());
-            
-            })
+        
 
-            return this.arrayGenre
-        }
-    },
+        },
+    
 
     mounted(){
         this.getApi();
+    },
+
+    computed:{
+        filteredSongs(){
+            if(this.songGenre === 'all'){
+                return this.songs;
+            }else{
+
+                let arrayGenre = [];
+
+                for(let i = 0; i < this.songs.length -1; i++){
+                    if(this.songs[i].genre.toUpperCase().includes(this.songGenre.toUpperCase()))
+                    arrayGenre.push(this.songs[i]);
+                }
+
+                return arrayGenre;
+            }                
+
+            
+        },
     }
 }
 </script>
