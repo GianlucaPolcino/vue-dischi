@@ -62,7 +62,7 @@ export default {
 
     computed:{
         filteredSongs(){
-            if(this.songGenre === 'all'){
+            if(this.songGenre == 'all' || this.songGenre == '' ){
                 return this.songs;
             }else{
 
